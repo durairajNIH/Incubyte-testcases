@@ -1,0 +1,43 @@
+S.No.,Scenario,Test cases,Test steps,Observed,Status,Comments1,Composing and sending email with valid inputs,Compose and send mail with valid inputs,"Given  my email account is logged in
+When  enter ""user@incubyte.com"" in the ""To"" field
+And  enter ""Subject Test"" in the ""Subject"" field
+And  enter ""test email."" in the ""Body"" field
+And click the ""Send"" button
+Then the email should be sent successfully
+And a confirmation message ""Email sent.""",,,2,Composing and sending email with Empty  To field ,Compose and send mail with Empty To field,"Given  my email account is logged in
+When  leave the ""To"" field as blank
+And  enter ""Subject Test"" in the ""Subject"" field
+And enter ""test email."" in the ""Body"" field
+And click the ""Send"" button
+Then  error message ""Recipient is required.""
+",,,3,Composing and sending email with Empty  Subject field ,Compose and send mail with Empty Subject field,"Given  my email account is logged in
+When I enter  ""user@incubyte.com as ""To"" field 
+And I enter ""Subject Test"" in the ""Subject"" field
+And I enter ""test email."" in the ""Body"" field
+And I click the ""Send"" button
+Then I should see an error message ""Subject is required.""
+",,,4,Composing and sending email with  invalid emailid ,Compose and send mail with invalid email,"Given  my email account is logged in
+When  enter  ""userincubyte.com as ""To"" field 
+And  enter ""Subject Test"" in the ""Subject"" field
+And  enter ""test email."" in the ""Body"" field
+And click the ""Send"" button
+Then  should see an error message ""Please enter the valid email.""
+",,,5,Saving a mail as draft,Composing and saving email as draft,"Given  my email account is logged in
+When I enter ""user@incobyte.com"" in the ""To"" field
+And  enter ""Subject Test"" in the ""Subject"" field
+And enter ""test email."" in the ""Body"" field
+And  click the ""Save Draft"" button
+Then the email should be saved as a draft
+And should see a confirmation message ""Email saved to drafts.""",,,6,Compose email with attachment,Composing and sending email with attachment,"Given  my email account is logged in
+When  enter ""user@incubyte.com"" in the ""To"" field
+And  enter ""Subject Test"" in the ""Subject"" field
+And  enter ""test email."" in the ""Body"" field
+And click the ""Send"" button
+Then the email should be sent successfully
+And ""attach.pdf""should be present in the mail",,,7,Compose email and cancel the mail,Composing and cancelling the mail,"Given  my email account is logged in
+When  enter ""user@incubyte.com"" in the ""To"" field
+And  enter ""Subject Test"" in the ""Subject"" field
+And  enter ""test email."" in the ""Body"" field
+And  click the ""Cancel"" button
+Then page should be redirected to the inbox page
+And the draft should not be saved.",,,
